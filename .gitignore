@@ -1,0 +1,4 @@
+/.vs/LeaveRequest/v14/*.suo
+/LeaveRequest/obj/Debug/*.cache
+/LeaveRequest/bin/Debug/LeaveRequest.exe.config
+/LeaveRequest/bin/Debug/LeaveRequest.vshost.exe.config
