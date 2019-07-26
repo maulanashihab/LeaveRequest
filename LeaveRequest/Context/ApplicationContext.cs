@@ -1,4 +1,4 @@
-﻿    using LeaveRequest.Models;
+using LeaveRequest.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -11,11 +11,13 @@ namespace LeaveRequest.Context
     public class ApplicationContext : DbContext
     {
         public ApplicationContext() : base("LeaveRequest") { }
-
+                    //<name_model> object{}
         public DbSet<Holiday> Holidays { get; set; }
         public DbSet<Parameter> Parameters { get; set; }
         //public DbSet<User> Users { get; set; }
         //public DbSet<LeaveHistory> LeaveHistories { get; set; }
-
+        public DbSet<EmployeeStatus> EmployeeStatuses { get; set; }
+        public DbSet<LeaveCategory> LeaveCategories { get; set; }
+        public DbSet<LeeaveRequest> LeaveRequest { get; set; }
     }
 }
