@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeaveRequest.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -11,5 +12,9 @@ namespace LeaveRequest.Context
     {
         public ApplicationContext() : base("LeaveRequest") { }
 
+                    //<name_model> object{}
+        public DbSet<EmployeeStatus> EmployeeStatuses { get; set; }
+        public DbSet<LeaveCategory> LeaveCategories { get; set; }
+        public DbSet<LeeaveRequest> LeaveRequest { get; set; }
     }
 }
