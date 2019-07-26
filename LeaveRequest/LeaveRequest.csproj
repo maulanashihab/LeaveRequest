@@ -35,7 +35,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.2.0.325, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.0\lib\net45\MaterialDesignColors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.6.0.325, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.6.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,6 +72,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controllers\EmployeeStatusesController.cs" />
+    <Compile Include="Controllers\LeaveCategoriesController.cs" />
+    <Compile Include="Controllers\LeaveRequestController.cs" />
+    <Compile Include="Migrations\201907241006273_addmoduleemployeeStatus.cs" />
+    <Compile Include="Migrations\201907241006273_addmoduleemployeeStatus.Designer.cs">
+      <DependentUpon>201907241006273_addmoduleemployeeStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907250946056_addmoduleleaverequest.cs" />
+    <Compile Include="Migrations\201907250946056_addmoduleleaverequest.Designer.cs">
+      <DependentUpon>201907250946056_addmoduleleaverequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907261004458_updateforeignleavecategory.cs" />
+    <Compile Include="Migrations\201907261004458_updateforeignleavecategory.Designer.cs">
+      <DependentUpon>201907261004458_updateforeignleavecategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repositories\EmployeeStatusRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEmployeeStatusRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ILeaveCategoryRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ILeaveRequestRepository.cs" />
+    <Compile Include="Repositories\LeaveCategoryRepository.cs" />
+    <Compile Include="Repositories\LeaveRequestRepository.cs" />
+    <Compile Include="ViewModels\EmployeeStatusVM.cs" />
+    <Compile Include="ViewModels\LeaveCategoryVM.cs" />
+    <Compile Include="ViewModels\LeaveRequestVM.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,12 +105,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Context\ApplicationContext.cs" />
+    <Compile Include="Core\BaseModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\EmployeeStatus.cs" />
+    <Compile Include="Models\LeaveCategory.cs" />
+    <Compile Include="Models\LeaveRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -82,10 +129,23 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201907241006273_addmoduleemployeeStatus.resx">
+      <DependentUpon>201907241006273_addmoduleemployeeStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907250946056_addmoduleleaverequest.resx">
+      <DependentUpon>201907250946056_addmoduleleaverequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907261004458_updateforeignleavecategory.resx">
+      <DependentUpon>201907261004458_updateforeignleavecategory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="bin\Debug\LeaveRequest.exe.config" />
+    <None Include="bin\Debug\LeaveRequest.vshost.exe.config" />
+    <None Include="bin\Debug\LeaveRequest.vshost.exe.manifest" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -94,6 +154,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\LeaveRequest.vshost.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
