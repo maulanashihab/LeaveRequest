@@ -19,10 +19,17 @@ namespace LeaveRequest.Repositories
         public bool Delete(int id)
         {
             var get = Get(id);
-            get.Delete();
-            aplicationContext.Entry(get).State = System.Data.Entity.EntityState.Modified;
-            var result = aplicationContext.SaveChanges();
-            return result > 0;
+            if (get != null)
+            {
+                get.Delete();
+                aplicationContext.Entry(get).State = System.Data.Entity.EntityState.Modified;
+                var result = aplicationContext.SaveChanges();
+                return result > 0;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public List<LeaveCategory> Get()
@@ -54,10 +61,17 @@ namespace LeaveRequest.Repositories
         public bool Update(int  id, LeaveCategoryVM leaveCategoryVm)
         {
             var get = Get(id);
-            get.Update(leaveCategoryVm);
-            aplicationContext.Entry(get).State = System.Data.Entity.EntityState.Modified;
-            var result = aplicationContext.SaveChanges();
-            return result > 0;
+            if (get != null)
+            {
+                get.Update(leaveCategoryVm);
+                aplicationContext.Entry(get).State = System.Data.Entity.EntityState.Modified;
+                var result = aplicationContext.SaveChanges();
+                return result > 0;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
