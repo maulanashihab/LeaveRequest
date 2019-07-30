@@ -11,7 +11,7 @@ namespace LeaveRequest.Context
     public class ApplicationContext : DbContext
     {
         public ApplicationContext() : base("LeaveRequest") { }
-                    //<name_model> object{}
+        //<name_model> object{}
         public DbSet<Employee> Employee { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<AvailableLeave> AvailableLeave { get; set; }
