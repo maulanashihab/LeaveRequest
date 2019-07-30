@@ -27,7 +27,7 @@ namespace LeaveRequest.Models
 
         public void Update(AvailableLeave availableLeaveVM)
         {
-            this.Id = availableLeaveVM.Id;
+           
             this.ThisYear = availableLeaveVM.ThisYear;
             this.LastYear = availableLeaveVM.LastYear;
         }
@@ -38,5 +38,6 @@ namespace LeaveRequest.Models
         }
         public int ThisYear { get; set; }
         public int LastYear { get; set; }
+        
     }
 }
