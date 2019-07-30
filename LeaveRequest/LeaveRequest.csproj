@@ -43,9 +43,12 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -64,6 +67,49 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Approval.xaml.cs">
+      <DependentUpon>Approval.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\LeaveHistoriesController.cs" />
+    <Compile Include="Controllers\LoginsController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907281346570_addallmodule.cs" />
+    <Compile Include="Migrations\201907281346570_addallmodule.Designer.cs">
+      <DependentUpon>201907281346570_addallmodule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907290446229_updatemoduleuser.cs" />
+    <Compile Include="Migrations\201907290446229_updatemoduleuser.Designer.cs">
+      <DependentUpon>201907290446229_updatemoduleuser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\LeaveHistory.cs" />
+    <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Repositories\EmployeeRepository.cs" />
+    <Compile Include="Repositories\HolidayRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEmployeeRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IHolidayRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ILeaveHistoryRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IParameterRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRoleRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IUserRepository.cs" />
+    <Compile Include="Repositories\LeaveHistoryRepository.cs" />
+    <Compile Include="Repositories\RoleRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Repositories\ParameterRepository.cs" />
+    <Compile Include="ViewModels\EmployeeVM.cs" />
+    <Compile Include="ViewModels\HolidayVM.cs" />
+    <Compile Include="ViewModels\LeaveHistoryVM.cs" />
+    <Compile Include="ViewModels\ParameterVM.cs" />
+    <Compile Include="ViewModels\RoleVM.cs" />
+    <Compile Include="ViewModels\UserVM.cs" />
     <Compile Include="Migrations\201907290334590_addingEsELrLc.cs" />
     <Compile Include="Migrations\201907290334590_addingEsELrLc.Designer.cs">
       <DependentUpon>201907290334590_addingEsELrLc.cs</DependentUpon>
@@ -115,6 +161,16 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Context\ApplicationContext.cs" />
+    <Page Include="Approval.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="Controllers\HolidaysController.cs" />
+    <Compile Include="Controllers\ParametersController.cs" />
     <Compile Include="Controllers\AvailableLeavesController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\EmployeeStatusesController.cs" />
@@ -156,6 +212,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+
     <EmbeddedResource Include="Migrations\201907290334590_addingEsELrLc.resx">
       <DependentUpon>201907290334590_addingEsELrLc.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,6 +236,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

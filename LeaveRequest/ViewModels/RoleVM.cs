@@ -10,7 +10,6 @@ namespace LeaveRequest.ViewModels
     {
        
         public string Name { get; set; }
-
         public RoleVM() { }
         public RoleVM(string name)
         {
