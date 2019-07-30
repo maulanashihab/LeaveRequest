@@ -12,8 +12,8 @@ namespace LeaveRequest.Context
     {
         public ApplicationContext() : base("LeaveRequest") { }
 
-        public DbSet<Employee> Employee { get; set; }
+        public DbSet<Employee> Employees { get; set; }
         public DbSet<Role> Roles { get; set; }
-        public DbSet<AvailableLeave> AvailableLeave { get; set; }
+        public DbSet<AvailableLeave> AvailableLeaves { get; set; }
     }
 }

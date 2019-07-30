@@ -8,28 +8,32 @@ using System.Threading.Tasks;
 
 namespace LeaveRequest.Models
 {
-    public class Role : BaseModel
+    public class Holiday : BaseModel
     {
-        public Role() { }
-       
-        public Role(RoleVM roleVM)
+        public DateTime? HolidayDate { get; set; }
+
+        public string HolidayName { get; set; }
+
+        public Holiday() { }
+
+        public Holiday(HolidayVM holidayVM)
         {
-            this.Name = roleVM.Name;
+            this.HolidayName = holidayVM.HolidayName;
+            this.HolidayDate = holidayVM.HolidayDate;
             this.CreateDate = DateTimeOffset.Now.LocalDateTime;
         }
 
-        public void Update(RoleVM roleVM)
+        public void Update(HolidayVM holidayVM)
         {
-            this.Name = roleVM.Name;
+            this.HolidayName = holidayVM.HolidayName;
+            this.HolidayDate = holidayVM.HolidayDate;
             this.UpdateDate = DateTimeOffset.Now.LocalDateTime;
         }
-        
+
         public void Delete()
         {
             this.IsDelete = true;
             this.DeleteDate = DateTimeOffset.Now.LocalDateTime;
         }
-
-        public string Name { get; set; }
     }
 }
