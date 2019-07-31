@@ -35,17 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-=======
->>>>>>> fe170b204c22f105a1121bde93272a172e61a81e
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -83,12 +72,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-<<<<<<< HEAD
-
-=======
->>>>>>> fe170b204c22f105a1121bde93272a172e61a81e
     <Compile Include="Controllers\AvailableLeavesController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\LeaveHistoriesController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Migrations\201907241002480_addmodulerole.cs" />
     <Compile Include="Migrations\201907241002480_addmodulerole.Designer.cs">
@@ -102,6 +88,38 @@
     <Compile Include="Migrations\201907260107262_addmoduleavailableleave.Designer.cs">
       <DependentUpon>201907260107262_addmoduleavailableleave.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\LeaveHistory.cs" />
+    <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Repositories\EmployeeRepository.cs" />
+    <Compile Include="Repositories\HolidayRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEmployeeRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IHolidayRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ILeaveHistoryRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IParameterRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRoleRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IUserRepository.cs" />
+    <Compile Include="Repositories\LeaveHistoryRepository.cs" />
+    <Compile Include="Repositories\RoleRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Repositories\ParameterRepository.cs" />
+    <Compile Include="ViewModels\EmployeeVM.cs" />
+    <Compile Include="ViewModels\HolidayVM.cs" />
+    <Compile Include="ViewModels\LeaveHistoryVM.cs" />
+    <Compile Include="ViewModels\ParameterVM.cs" />
+    <Compile Include="ViewModels\RoleVM.cs" />
+    <Compile Include="ViewModels\UserVM.cs" />
+    <Page Include="Approval.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Compile Include="Migrations\201907260915191_updateforeignmanager.cs" />
     <Compile Include="Migrations\201907260915191_updateforeignmanager.Designer.cs">
       <DependentUpon>201907260915191_updateforeignmanager.cs</DependentUpon>
@@ -124,57 +142,7 @@
     <Compile Include="ViewModels\AvailableLeaveVM.cs" />
     <Compile Include="ViewModels\EmployeeVM.cs" />
     <Compile Include="ViewModels\RoleVM.cs" />
-<<<<<<< HEAD
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> fe170b204c22f105a1121bde93272a172e61a81e
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -183,9 +151,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-<<<<<<< HEAD
-
-    <Compile Include="Context\ApplicationContext.cs" />
     <Compile Include="Core\BaseModel.cs" />
 
 
@@ -206,31 +171,13 @@
 
 
 
-
-=======
-    <Compile Include="Context\ApplicationContext.cs" />
-    <Compile Include="Core\BaseModel.cs" />
->>>>>>> fe170b204c22f105a1121bde93272a172e61a81e
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\AvailableLeave.cs" />
-    <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\Role.cs" />
-<<<<<<< HEAD
 
-
-
-
-
-
-
-
-=======
->>>>>>> fe170b204c22f105a1121bde93272a172e61a81e
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -244,11 +191,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-<<<<<<< HEAD
-
-
-=======
->>>>>>> fe170b204c22f105a1121bde93272a172e61a81e
+    <EmbeddedResource Include="Migrations\201907281346570_addallmodule.resx">
+      <DependentUpon>201907281346570_addallmodule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907290446229_updatemoduleuser.resx">
+      <DependentUpon>201907290446229_updatemoduleuser.cs</DependentUpon>
     <EmbeddedResource Include="Migrations\201907241002480_addmodulerole.resx">
       <DependentUpon>201907241002480_addmodulerole.cs</DependentUpon>
     </EmbeddedResource>
