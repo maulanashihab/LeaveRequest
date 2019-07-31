@@ -35,6 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
+
+
+
+
+
+
+
+
+=======
+>>>>>>> fe170b204c22f105a1121bde93272a172e61a81e
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -43,12 +54,17 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-
+    <Reference Include="MaterialDesignColors, Version=1.2.0.325, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.0\lib\net45\MaterialDesignColors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.6.0.325, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.6.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -67,91 +83,98 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Approval.xaml.cs">
-      <DependentUpon>Approval.xaml</DependentUpon>
-    </Compile>
+<<<<<<< HEAD
+
+=======
+>>>>>>> fe170b204c22f105a1121bde93272a172e61a81e
+    <Compile Include="Controllers\AvailableLeavesController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
-    <Compile Include="Controllers\LeaveHistoriesController.cs" />
-    <Compile Include="Controllers\LoginsController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
+    <Compile Include="Migrations\201907241002480_addmodulerole.cs" />
+    <Compile Include="Migrations\201907241002480_addmodulerole.Designer.cs">
+      <DependentUpon>201907241002480_addmodulerole.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907281346570_addallmodule.cs" />
-    <Compile Include="Migrations\201907281346570_addallmodule.Designer.cs">
-      <DependentUpon>201907281346570_addallmodule.cs</DependentUpon>
+    <Compile Include="Migrations\201907250658202_addmoduleemployee.cs" />
+    <Compile Include="Migrations\201907250658202_addmoduleemployee.Designer.cs">
+      <DependentUpon>201907250658202_addmoduleemployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907290446229_updatemoduleuser.cs" />
-    <Compile Include="Migrations\201907290446229_updatemoduleuser.Designer.cs">
-      <DependentUpon>201907290446229_updatemoduleuser.cs</DependentUpon>
+    <Compile Include="Migrations\201907260107262_addmoduleavailableleave.cs" />
+    <Compile Include="Migrations\201907260107262_addmoduleavailableleave.Designer.cs">
+      <DependentUpon>201907260107262_addmoduleavailableleave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907260915191_updateforeignmanager.cs" />
+    <Compile Include="Migrations\201907260915191_updateforeignmanager.Designer.cs">
+      <DependentUpon>201907260915191_updateforeignmanager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907290111191_updatemoduleemployee.cs" />
+    <Compile Include="Migrations\201907290111191_updatemoduleemployee.Designer.cs">
+      <DependentUpon>201907290111191_updatemoduleemployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907300635048_modifieddatatype.cs" />
+    <Compile Include="Migrations\201907300635048_modifieddatatype.Designer.cs">
+      <DependentUpon>201907300635048_modifieddatatype.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\LeaveHistory.cs" />
-    <Compile Include="Models\Login.cs" />
-    <Compile Include="Models\Role.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Repositories\EmployeeRepository.cs" />
-    <Compile Include="Repositories\HolidayRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IEmployeeRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IHolidayRepository.cs" />
-    <Compile Include="Repositories\Interfaces\ILeaveHistoryRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IParameterRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IRoleRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IUserRepository.cs" />
-    <Compile Include="Repositories\LeaveHistoryRepository.cs" />
-    <Compile Include="Repositories\RoleRepository.cs" />
-    <Compile Include="Repositories\UserRepository.cs" />
-    <Compile Include="Repositories\ParameterRepository.cs" />
-    <Compile Include="ViewModels\EmployeeVM.cs" />
-    <Compile Include="ViewModels\HolidayVM.cs" />
-    <Compile Include="ViewModels\LeaveHistoryVM.cs" />
-    <Compile Include="ViewModels\ParameterVM.cs" />
-    <Compile Include="ViewModels\RoleVM.cs" />
-    <Compile Include="ViewModels\UserVM.cs" />
-    <Compile Include="Migrations\201907290334590_addingEsELrLc.cs" />
-    <Compile Include="Migrations\201907290334590_addingEsELrLc.Designer.cs">
-      <DependentUpon>201907290334590_addingEsELrLc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907290437264_foreignkey.cs" />
-    <Compile Include="Migrations\201907290437264_foreignkey.Designer.cs">
-      <DependentUpon>201907290437264_foreignkey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907290714285_hapusemployeid.cs" />
-    <Compile Include="Migrations\201907290714285_hapusemployeid.Designer.cs">
-      <DependentUpon>201907290714285_hapusemployeid.cs</DependentUpon>
-    </Compile>
     <Compile Include="Repositories\AvailableLeaveRepository.cs" />
     <Compile Include="Repositories\EmployeeRepository.cs" />
-    <Compile Include="Repositories\EmployeeStatusRepository.cs" />
-    <Compile Include="Repositories\HolidayRepository.cs" />
     <Compile Include="Repositories\Interfaces\IAvailableLeaveRepository.cs" />
     <Compile Include="Repositories\Interfaces\IEmployeeRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IEmployeeStatusRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IHolidayRepository.cs" />
-    <Compile Include="Repositories\Interfaces\ILeaveCategoryRepository.cs" />
-    <Compile Include="Repositories\Interfaces\ILeaveHistoryRepository.cs" />
-    <Compile Include="Repositories\Interfaces\ILeaveRequestRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IParameterRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRoleRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IUserRepository.cs" />
-    <Compile Include="Repositories\LeaveCategoryRepository.cs" />
-    <Compile Include="Repositories\LeaveHistoryRepository.cs" />
-    <Compile Include="Repositories\LeaveRequestRepository.cs" />
-    <Compile Include="Repositories\ParameterRepository.cs" />
     <Compile Include="Repositories\RoleRepository.cs" />
-    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="ViewModels\AvailableLeaveVM.cs" />
-    <Compile Include="ViewModels\EmployeeStatusVM.cs" />
     <Compile Include="ViewModels\EmployeeVM.cs" />
-    <Compile Include="ViewModels\HolidayVM.cs" />
-    <Compile Include="ViewModels\LeaveCategoryVM.cs" />
-    <Compile Include="ViewModels\LeaveHistoryVM.cs" />
-    <Compile Include="ViewModels\LeaveRequestVM.cs" />
-    <Compile Include="ViewModels\ParameterVM.cs" />
     <Compile Include="ViewModels\RoleVM.cs" />
-    <Compile Include="ViewModels\UserVM.cs" />
+<<<<<<< HEAD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
+>>>>>>> fe170b204c22f105a1121bde93272a172e61a81e
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -160,45 +183,54 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+<<<<<<< HEAD
+
     <Compile Include="Context\ApplicationContext.cs" />
-    <Page Include="Approval.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Login.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Compile Include="Controllers\HolidaysController.cs" />
-    <Compile Include="Controllers\ParametersController.cs" />
-    <Compile Include="Controllers\AvailableLeavesController.cs" />
-    <Compile Include="Controllers\EmployeesController.cs" />
-    <Compile Include="Controllers\EmployeeStatusesController.cs" />
-    <Compile Include="Controllers\HolidaysController.cs" />
-    <Compile Include="Controllers\LeaveCategoriesController.cs" />
-    <Compile Include="Controllers\LeaveHistoriesController.cs" />
-    <Compile Include="Controllers\LeaveRequestController.cs" />
-    <Compile Include="Controllers\ParametersController.cs" />
-    <Compile Include="Controllers\RolesController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Core\BaseModel.cs" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
+    <Compile Include="Context\ApplicationContext.cs" />
+    <Compile Include="Core\BaseModel.cs" />
+>>>>>>> fe170b204c22f105a1121bde93272a172e61a81e
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AvailableLeave.cs" />
     <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\EmployeeStatus.cs" />
-    <Compile Include="Models\Holiday.cs" />
-    <Compile Include="Models\LeaveCategory.cs" />
-    <Compile Include="Models\LeaveHistory.cs" />
-    <Compile Include="Models\LeaveRequest.cs" />
-    <Compile Include="Models\Parameter.cs" />
     <Compile Include="Models\Role.cs" />
-    <Compile Include="Models\User.cs" />
+<<<<<<< HEAD
+
+
+
+
+
+
+
+
+=======
+>>>>>>> fe170b204c22f105a1121bde93272a172e61a81e
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -212,15 +244,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+<<<<<<< HEAD
 
-    <EmbeddedResource Include="Migrations\201907290334590_addingEsELrLc.resx">
-      <DependentUpon>201907290334590_addingEsELrLc.cs</DependentUpon>
+
+=======
+>>>>>>> fe170b204c22f105a1121bde93272a172e61a81e
+    <EmbeddedResource Include="Migrations\201907241002480_addmodulerole.resx">
+      <DependentUpon>201907241002480_addmodulerole.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907290437264_foreignkey.resx">
-      <DependentUpon>201907290437264_foreignkey.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907250658202_addmoduleemployee.resx">
+      <DependentUpon>201907250658202_addmoduleemployee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907290714285_hapusemployeid.resx">
-      <DependentUpon>201907290714285_hapusemployeid.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907260107262_addmoduleavailableleave.resx">
+      <DependentUpon>201907260107262_addmoduleavailableleave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907260915191_updateforeignmanager.resx">
+      <DependentUpon>201907260915191_updateforeignmanager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907290111191_updatemoduleemployee.resx">
+      <DependentUpon>201907290111191_updatemoduleemployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907300635048_modifieddatatype.resx">
+      <DependentUpon>201907300635048_modifieddatatype.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

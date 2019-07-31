@@ -11,6 +11,7 @@ namespace LeaveRequest.Models
     public class Role : BaseModel
     {
         public Role() { }
+       
         public Role(RoleVM roleVM)
         {
             this.Name = roleVM.Name;

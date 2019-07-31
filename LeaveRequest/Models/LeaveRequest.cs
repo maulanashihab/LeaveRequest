@@ -1,4 +1,22 @@
-﻿using LeaveRequest.Core;
+﻿
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+using LeaveRequest.Core;
 using LeaveRequest.Models;
 using LeaveRequest.ViewModels;
 using System;
@@ -16,9 +34,8 @@ namespace LeaveRequest.Models
         public string Reason { get; set; }
         public string ApproverComments { get; set; }
         public string Status { get; set; }
+        public int Employees_Id { get; set; }
         public LeaveCategory LeaveCategory { get; set; }//foreign key join
-        public Employee Employee { get; set; }
-      
 
         public LeeaveRequest() { }
         public LeeaveRequest(LeaveRequestVM leaveRequestVM)
@@ -28,6 +45,7 @@ namespace LeaveRequest.Models
             this.Reason = leaveRequestVM.Reason;
             this.ApproverComments = leaveRequestVM.ApproverComments;
             this.Status = leaveRequestVM.Status;
+            this.Employees_Id = leaveRequestVM.Employees_Id;
             this.CreateDate = DateTimeOffset.Now.LocalDateTime;
         }
         public void Update(LeaveRequestVM leaveRequestVM)
@@ -37,6 +55,7 @@ namespace LeaveRequest.Models
             this.Reason = leaveRequestVM.Reason;
             this.ApproverComments = leaveRequestVM.ApproverComments;
             this.Status = leaveRequestVM.Status;
+            this.Employees_Id = leaveRequestVM.Employees_Id;
             this.UpdateDate = DateTimeOffset.Now.LocalDateTime;
         }
         public void Delete()

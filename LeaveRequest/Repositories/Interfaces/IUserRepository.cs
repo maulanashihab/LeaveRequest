@@ -1,4 +1,16 @@
-﻿using LeaveRequest.Models;
+﻿
+
+
+
+
+
+
+
+
+
+
+
+using LeaveRequest.Models;
 using LeaveRequest.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -10,11 +22,11 @@ namespace LeaveRequest.Repositories.Interfaces
 {
     public interface IUserRepository
     {
-        List<User> Get();
-        User Get(int id);
-        List<User> Get(string value);
-        bool Insert(UserVM userVM);
-        bool Update(int id, UserVM userVM);
-        bool Delete(int id);
+        //List<User> Get();
+        //User Get(int id);
+        //List<User> Get(string value);
+        //bool Insert(UserVM userVM);
+        //bool Update(UserVM userVM);
+        //bool Delete(int id);
     }
 }
