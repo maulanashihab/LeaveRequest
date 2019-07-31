@@ -70,11 +70,8 @@
     <Compile Include="Approval.xaml.cs">
       <DependentUpon>Approval.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\LeaveHistoriesController.cs" />
     <Compile Include="Controllers\LoginsController.cs" />
-    <Compile Include="Controllers\RolesController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -86,30 +83,6 @@
     <Compile Include="Migrations\201907290446229_updatemoduleuser.Designer.cs">
       <DependentUpon>201907290446229_updatemoduleuser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\LeaveHistory.cs" />
-    <Compile Include="Models\Login.cs" />
-    <Compile Include="Models\Role.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Repositories\EmployeeRepository.cs" />
-    <Compile Include="Repositories\HolidayRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IEmployeeRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IHolidayRepository.cs" />
-    <Compile Include="Repositories\Interfaces\ILeaveHistoryRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IParameterRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IRoleRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IUserRepository.cs" />
-    <Compile Include="Repositories\LeaveHistoryRepository.cs" />
-    <Compile Include="Repositories\RoleRepository.cs" />
-    <Compile Include="Repositories\UserRepository.cs" />
-    <Compile Include="Repositories\ParameterRepository.cs" />
-    <Compile Include="ViewModels\EmployeeVM.cs" />
-    <Compile Include="ViewModels\HolidayVM.cs" />
-    <Compile Include="ViewModels\LeaveHistoryVM.cs" />
-    <Compile Include="ViewModels\ParameterVM.cs" />
-    <Compile Include="ViewModels\RoleVM.cs" />
-    <Compile Include="ViewModels\UserVM.cs" />
     <Compile Include="Migrations\201907290334590_addingEsELrLc.cs" />
     <Compile Include="Migrations\201907290334590_addingEsELrLc.Designer.cs">
       <DependentUpon>201907290334590_addingEsELrLc.cs</DependentUpon>
@@ -169,14 +142,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Compile Include="Controllers\HolidaysController.cs" />
-    <Compile Include="Controllers\ParametersController.cs" />
     <Compile Include="Controllers\AvailableLeavesController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\EmployeeStatusesController.cs" />
     <Compile Include="Controllers\HolidaysController.cs" />
     <Compile Include="Controllers\LeaveCategoriesController.cs" />
-    <Compile Include="Controllers\LeaveHistoriesController.cs" />
     <Compile Include="Controllers\LeaveRequestController.cs" />
     <Compile Include="Controllers\ParametersController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
