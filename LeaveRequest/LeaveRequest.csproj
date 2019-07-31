@@ -35,7 +35,35 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
+
+
+
+
+
+
+
+
+=======
+>>>>>>> fe170b204c22f105a1121bde93272a172e61a81e
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.2.0.325, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.0\lib\net45\MaterialDesignColors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.6.0.325, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.6.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,6 +83,98 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+<<<<<<< HEAD
+
+=======
+>>>>>>> fe170b204c22f105a1121bde93272a172e61a81e
+    <Compile Include="Controllers\AvailableLeavesController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Migrations\201907241002480_addmodulerole.cs" />
+    <Compile Include="Migrations\201907241002480_addmodulerole.Designer.cs">
+      <DependentUpon>201907241002480_addmodulerole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907250658202_addmoduleemployee.cs" />
+    <Compile Include="Migrations\201907250658202_addmoduleemployee.Designer.cs">
+      <DependentUpon>201907250658202_addmoduleemployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907260107262_addmoduleavailableleave.cs" />
+    <Compile Include="Migrations\201907260107262_addmoduleavailableleave.Designer.cs">
+      <DependentUpon>201907260107262_addmoduleavailableleave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907260915191_updateforeignmanager.cs" />
+    <Compile Include="Migrations\201907260915191_updateforeignmanager.Designer.cs">
+      <DependentUpon>201907260915191_updateforeignmanager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907290111191_updatemoduleemployee.cs" />
+    <Compile Include="Migrations\201907290111191_updatemoduleemployee.Designer.cs">
+      <DependentUpon>201907290111191_updatemoduleemployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907300635048_modifieddatatype.cs" />
+    <Compile Include="Migrations\201907300635048_modifieddatatype.Designer.cs">
+      <DependentUpon>201907300635048_modifieddatatype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repositories\AvailableLeaveRepository.cs" />
+    <Compile Include="Repositories\EmployeeRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IAvailableLeaveRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEmployeeRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRoleRepository.cs" />
+    <Compile Include="Repositories\RoleRepository.cs" />
+    <Compile Include="ViewModels\AvailableLeaveVM.cs" />
+    <Compile Include="ViewModels\EmployeeVM.cs" />
+    <Compile Include="ViewModels\RoleVM.cs" />
+<<<<<<< HEAD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
+>>>>>>> fe170b204c22f105a1121bde93272a172e61a81e
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,12 +183,54 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+<<<<<<< HEAD
+
+    <Compile Include="Context\ApplicationContext.cs" />
+    <Compile Include="Core\BaseModel.cs" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
+    <Compile Include="Context\ApplicationContext.cs" />
+    <Compile Include="Core\BaseModel.cs" />
+>>>>>>> fe170b204c22f105a1121bde93272a172e61a81e
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\AvailableLeave.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Role.cs" />
+<<<<<<< HEAD
+
+
+
+
+
+
+
+
+=======
+>>>>>>> fe170b204c22f105a1121bde93272a172e61a81e
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -82,10 +244,34 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> fe170b204c22f105a1121bde93272a172e61a81e
+    <EmbeddedResource Include="Migrations\201907241002480_addmodulerole.resx">
+      <DependentUpon>201907241002480_addmodulerole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907250658202_addmoduleemployee.resx">
+      <DependentUpon>201907250658202_addmoduleemployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907260107262_addmoduleavailableleave.resx">
+      <DependentUpon>201907260107262_addmoduleavailableleave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907260915191_updateforeignmanager.resx">
+      <DependentUpon>201907260915191_updateforeignmanager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907290111191_updatemoduleemployee.resx">
+      <DependentUpon>201907290111191_updatemoduleemployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907300635048_modifieddatatype.resx">
+      <DependentUpon>201907300635048_modifieddatatype.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -95,6 +281,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

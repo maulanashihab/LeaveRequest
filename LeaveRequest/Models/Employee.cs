@@ -18,19 +18,18 @@ namespace LeaveRequest.Models
             this.Gender = employeeVM.Gender;
             this.Religion = employeeVM.Religion;
             this.MaritalStatus = employeeVM.MaritalStatus;
-            this.Children = employeeVM.Children;
+            this.Num_Of_Children = employeeVM.Num_Of_Children;
             this.CreateDate = DateTimeOffset.Now.LocalDateTime;
         }
 
         public void Update(EmployeeVM employeeVM)
         {
-            this.Id = employeeVM.Id;
             this.FirstName = employeeVM.FirstName;
             this.LastName = employeeVM.LastName;
             this.Gender = employeeVM.Gender;
             this.Religion = employeeVM.Religion;
             this.MaritalStatus = employeeVM.MaritalStatus;
-            this.Children = employeeVM.Children;
+            this.Num_Of_Children = employeeVM.Num_Of_Children;
             this.UpdateDate = DateTimeOffset.Now.LocalDateTime;
         }
 
@@ -42,10 +41,10 @@ namespace LeaveRequest.Models
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Gender { get; set; }
+        public bool Gender { get; set; }
         public string Religion { get; set; }
-        public string MaritalStatus { get; set; }
-        public int Children { get; set; }
+        public bool MaritalStatus { get; set; }
+        public int Num_Of_Children { get; set; }
         public Employee Manager { get; set; } //foreign key self join
     }
 }
