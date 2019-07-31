@@ -40,6 +40,8 @@ namespace LeaveRequest
         }
     }
 }
+    }
+}
         private void savebtn_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(nametxtBox.Text))
@@ -364,7 +366,6 @@ namespace LeaveRequest
             }
         }
         }
-
 
 
 

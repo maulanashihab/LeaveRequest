@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
 
 
 
@@ -43,6 +44,8 @@
 
 
 
+=======
+>>>>>>> fe170b204c22f105a1121bde93272a172e61a81e
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -80,7 +83,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+<<<<<<< HEAD
 
+=======
+>>>>>>> fe170b204c22f105a1121bde93272a172e61a81e
     <Compile Include="Controllers\AvailableLeavesController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
@@ -118,6 +124,7 @@
     <Compile Include="ViewModels\AvailableLeaveVM.cs" />
     <Compile Include="ViewModels\EmployeeVM.cs" />
     <Compile Include="ViewModels\RoleVM.cs" />
+<<<<<<< HEAD
 
 
 
@@ -166,6 +173,8 @@
 
 
 
+=======
+>>>>>>> fe170b204c22f105a1121bde93272a172e61a81e
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -174,6 +183,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+<<<<<<< HEAD
 
     <Compile Include="Context\ApplicationContext.cs" />
     <Compile Include="Core\BaseModel.cs" />
@@ -197,6 +207,10 @@
 
 
 
+=======
+    <Compile Include="Context\ApplicationContext.cs" />
+    <Compile Include="Core\BaseModel.cs" />
+>>>>>>> fe170b204c22f105a1121bde93272a172e61a81e
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -206,6 +220,7 @@
     <Compile Include="Models\AvailableLeave.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Role.cs" />
+<<<<<<< HEAD
 
 
 
@@ -214,6 +229,8 @@
 
 
 
+=======
+>>>>>>> fe170b204c22f105a1121bde93272a172e61a81e
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -227,8 +244,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> fe170b204c22f105a1121bde93272a172e61a81e
     <EmbeddedResource Include="Migrations\201907241002480_addmodulerole.resx">
       <DependentUpon>201907241002480_addmodulerole.cs</DependentUpon>
     </EmbeddedResource>
