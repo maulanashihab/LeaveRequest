@@ -51,15 +51,9 @@
       <HintPath>..\packages\MaterialDesignThemes.2.6.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -78,23 +72,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Approval.xaml.cs">
-      <DependentUpon>Approval.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Controllers\AvailableLeavesController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\LeaveHistoriesController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
+    <Compile Include="Migrations\201907241002480_addmodulerole.cs" />
+    <Compile Include="Migrations\201907241002480_addmodulerole.Designer.cs">
+      <DependentUpon>201907241002480_addmodulerole.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907281346570_addallmodule.cs" />
-    <Compile Include="Migrations\201907281346570_addallmodule.Designer.cs">
-      <DependentUpon>201907281346570_addallmodule.cs</DependentUpon>
+    <Compile Include="Migrations\201907250658202_addmoduleemployee.cs" />
+    <Compile Include="Migrations\201907250658202_addmoduleemployee.Designer.cs">
+      <DependentUpon>201907250658202_addmoduleemployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907290446229_updatemoduleuser.cs" />
-    <Compile Include="Migrations\201907290446229_updatemoduleuser.Designer.cs">
-      <DependentUpon>201907290446229_updatemoduleuser.cs</DependentUpon>
+    <Compile Include="Migrations\201907260107262_addmoduleavailableleave.cs" />
+    <Compile Include="Migrations\201907260107262_addmoduleavailableleave.Designer.cs">
+      <DependentUpon>201907260107262_addmoduleavailableleave.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -128,6 +120,29 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Compile Include="Migrations\201907260915191_updateforeignmanager.cs" />
+    <Compile Include="Migrations\201907260915191_updateforeignmanager.Designer.cs">
+      <DependentUpon>201907260915191_updateforeignmanager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907290111191_updatemoduleemployee.cs" />
+    <Compile Include="Migrations\201907290111191_updatemoduleemployee.Designer.cs">
+      <DependentUpon>201907290111191_updatemoduleemployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907300635048_modifieddatatype.cs" />
+    <Compile Include="Migrations\201907300635048_modifieddatatype.Designer.cs">
+      <DependentUpon>201907300635048_modifieddatatype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repositories\AvailableLeaveRepository.cs" />
+    <Compile Include="Repositories\EmployeeRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IAvailableLeaveRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEmployeeRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRoleRepository.cs" />
+    <Compile Include="Repositories\RoleRepository.cs" />
+    <Compile Include="ViewModels\AvailableLeaveVM.cs" />
+    <Compile Include="ViewModels\EmployeeVM.cs" />
+    <Compile Include="ViewModels\RoleVM.cs" />
+
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -136,18 +151,33 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Context\ApplicationContext.cs" />
-    <Compile Include="Controllers\HolidaysController.cs" />
-    <Compile Include="Controllers\ParametersController.cs" />
     <Compile Include="Core\BaseModel.cs" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Holiday.cs" />
-    <Compile Include="Models\Parameter.cs" />
+
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -166,6 +196,23 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907290446229_updatemoduleuser.resx">
       <DependentUpon>201907290446229_updatemoduleuser.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907241002480_addmodulerole.resx">
+      <DependentUpon>201907241002480_addmodulerole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907250658202_addmoduleemployee.resx">
+      <DependentUpon>201907250658202_addmoduleemployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907260107262_addmoduleavailableleave.resx">
+      <DependentUpon>201907260107262_addmoduleavailableleave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907260915191_updateforeignmanager.resx">
+      <DependentUpon>201907260915191_updateforeignmanager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907290111191_updatemoduleemployee.resx">
+      <DependentUpon>201907290111191_updatemoduleemployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907300635048_modifieddatatype.resx">
+      <DependentUpon>201907300635048_modifieddatatype.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
