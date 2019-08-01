@@ -34,7 +34,7 @@ namespace LeaveRequest.Repositories
 
         public List<LeeaveRequest> Get()
         {
-            var get = aplicationContext.LeaveRequest.Include("Employee").Include("LeaveCategory").Where(x => x.IsDelete == false).ToList();
+            var get = aplicationContext.LeaveRequest.Include("Employee").Include("LeaveCategory").Where(x => x.IsDelete == false ).ToList();
             return get;
         }
 
@@ -54,7 +54,7 @@ namespace LeaveRequest.Repositories
         public bool Insert(LeaveRequestVM leaveRequestVM)
         {
             var push = new LeeaveRequest(leaveRequestVM);
-            var getEmployee = aplicationContext.Employee.SingleOrDefault(x => x.IsDelete == false && x.Id == leaveRequestVM.Employees);
+            var getEmployee = aplicationContext.Employees.SingleOrDefault(x => x.IsDelete == false && x.Id == leaveRequestVM.Employees);
             push.Employee = getEmployee;
             var getCategory = aplicationContext.LeaveCategories.SingleOrDefault(x => x.IsDelete == false && x.Id == leaveRequestVM.Leave_Categories);
             push.LeaveCategory = getCategory; 
@@ -68,10 +68,11 @@ namespace LeaveRequest.Repositories
             var get = Get(id);
             if (get != null)
             {
-                var getEmployee = aplicationContext.Employee.SingleOrDefault(x => x.IsDelete == false && x.Id == leaveRequestVM.Employees);
+                var getEmployee = aplicationContext.Employees.SingleOrDefault(x => x.IsDelete == false && x.Id == leaveRequestVM.Employees);
                 get.Employee = getEmployee;
                 var getCategory = aplicationContext.LeaveCategories.SingleOrDefault(x => x.IsDelete == false && x.Id == leaveRequestVM.Leave_Categories);
-                get.LeaveCategory = getCategory; 
+                get.LeaveCategory = getCategory;
+                get.Update(leaveRequestVM);
                 aplicationContext.Entry(get).State = EntityState.Modified;
                 var result = aplicationContext.SaveChanges();
                 return result > 0;

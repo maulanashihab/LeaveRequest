@@ -26,6 +26,7 @@ namespace LeaveRequest.ViewModels
             this.Employees = employeesId;
             this.Leave_Categories = leave_CategoriesId;
         }
+     
         public void Update(DateTime? fromDate, DateTime? toDate, string reason, string approverComments, string status, int employeesId, int leave_CategoriesId)
         {
             this.FromDate = fromDate;
@@ -36,6 +37,7 @@ namespace LeaveRequest.ViewModels
             this.Employees = employeesId;
             this.Leave_Categories = leave_CategoriesId;
         }
+       
        
     }
 }

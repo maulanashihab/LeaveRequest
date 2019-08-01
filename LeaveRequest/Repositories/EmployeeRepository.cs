@@ -32,7 +32,7 @@ namespace LeaveRequest.Repositories
 
         public List<Employee> Get(string value) //for search data by value id, firstname & lastname.
         {
-            var get = applicationContext.Employees.Where(x => (x.Id.ToString().Contains(value) || x.FirstName.Contains(value) || x.LastName.Contains(value) || x.Gender.Contains(value)) && x.IsDelete == false).ToList();
+            var get = applicationContext.Employees.Where(x => (x.Id.ToString().Contains(value) || x.FirstName.Contains(value) || x.LastName.Contains(value) ) && x.IsDelete == false).ToList();
             return get;
         }
 

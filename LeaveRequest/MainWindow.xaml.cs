@@ -18,6 +18,7 @@ using System.Windows.Shapes;
 
 namespace LeaveRequest
 {
+    
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -253,7 +254,7 @@ namespace LeaveRequest
                 totalDayLctxtBox.Text = (leaveCategorytGrid.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text;
                 descriptionLctxtBox.Text = (leaveCategorytGrid.SelectedCells[3].Column.GetCellContent(item) as TextBlock).Text;
 
-    
+
             }
             catch (Exception ex)
             {
@@ -270,10 +271,14 @@ namespace LeaveRequest
                 fromDatedtPicker.Text = (leaveReaquestdtGrid.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
                 toDatedtPicker.Text = (leaveReaquestdtGrid.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text;
                 reasontxtBox.Text = (leaveReaquestdtGrid.SelectedCells[3].Column.GetCellContent(item) as TextBlock).Text;
-                //approverCommentstxtBox.Text = (leaveReaquestdtGrid.SelectedCells[4].Column.GetCellContent(item) as TextBlock).Text;
-                //statusLrtxtBox.Text = (leaveReaquestdtGrid.SelectedCells[5].Column.GetCellContent(item) as TextBlock).Text;
+                approverCommentstxtBox.Text = (leaveReaquestdtGrid.SelectedCells[4].Column.GetCellContent(item) as TextBlock).Text;
+                statusLrtxtBox.Text = (leaveReaquestdtGrid.SelectedCells[5].Column.GetCellContent(item) as TextBlock).Text;
                 idEmployeecmbBox.Text = (leaveReaquestdtGrid.SelectedCells[6].Column.GetCellContent(item) as TextBlock).Text;
                 idLeaveCategorycmbBox.Text = (leaveReaquestdtGrid.SelectedCells[7].Column.GetCellContent(item) as TextBlock).Text;
+                gendertxtBox.Text = (leaveReaquestdtGrid.SelectedCells[8].Column.GetCellContent(item) as TextBlock).Text;
+                maritaltxtBox.Text = (leaveReaquestdtGrid.SelectedCells[9].Column.GetCellContent(item) as TextBlock).Text;
+                religiontxtBox.Text = (leaveReaquestdtGrid.SelectedCells[10].Column.GetCellContent(item) as TextBlock).Text;
+                noctxtBox.Text = (leaveReaquestdtGrid.SelectedCells[11].Column.GetCellContent(item) as TextBlock).Text;
             }
             catch (Exception ex)
             {
@@ -284,7 +289,7 @@ namespace LeaveRequest
         private void updatebtnlr_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(idLrtxtBox.Text) || string.IsNullOrWhiteSpace(fromDatedtPicker.Text) ||
-            string.IsNullOrWhiteSpace(toDatedtPicker.Text) || string.IsNullOrWhiteSpace(reasontxtBox.Text) ||  string.IsNullOrWhiteSpace(idEmployeecmbBox.Text) || string.IsNullOrWhiteSpace(idLeaveCategorycmbBox.Text))
+            string.IsNullOrWhiteSpace(toDatedtPicker.Text) || string.IsNullOrWhiteSpace(reasontxtBox.Text) || string.IsNullOrWhiteSpace(idEmployeecmbBox.Text) || string.IsNullOrWhiteSpace(idLeaveCategorycmbBox.Text))
             {
                 MessageBox.Show("Please Fill Blank Text box");
             }
@@ -317,34 +322,196 @@ namespace LeaveRequest
         private void savebtnlr_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(fromDatedtPicker.Text) ||
-            string.IsNullOrWhiteSpace(toDatedtPicker.Text) || string.IsNullOrWhiteSpace(reasontxtBox.Text)|| string.IsNullOrWhiteSpace(idEmployeecmbBox.Text) || string.IsNullOrWhiteSpace(idLeaveCategorycmbBox.Text))
+            string.IsNullOrWhiteSpace(toDatedtPicker.Text) || string.IsNullOrWhiteSpace(reasontxtBox.Text) || string.IsNullOrWhiteSpace(idEmployeecmbBox.Text) || string.IsNullOrWhiteSpace(idLeaveCategorycmbBox.Text))
+
             {
                 MessageBox.Show("Please Fill Blank Text box");
             }
             else
             {
+
                 var push = new LeaveRequestVM(fromDatedtPicker.SelectedDate, toDatedtPicker.SelectedDate, reasontxtBox.Text,
-                                              "No Comment", "Pending", Convert.ToInt32(idEmployeecmbBox.SelectedValue), Convert.ToInt32(idLeaveCategorycmbBox.SelectedValue));
+                                                  "No Comment", "Pending", Convert.ToInt32(idEmployeecmbBox.SelectedValue), Convert.ToInt32(idLeaveCategorycmbBox.SelectedValue));
+
                 MessageBoxResult messageBox = System.Windows.MessageBox.Show("Are U Sure?", "Insert Box", System.Windows.MessageBoxButton.YesNo);
                 if (messageBox == MessageBoxResult.Yes)
                 {
-                    var result = leaveRequestController.Insert(push);
-                    if (result)
+                    var gender = Convert.ToBoolean(gendertxtBox.Text);
+                    var marital = Convert.ToBoolean(maritaltxtBox.Text);
+                    var anak = Convert.ToInt32(noctxtBox.Text);
+                    var religion = religiontxtBox.Text;
+                    bool boolGender = false;
+                    bool boolMarital = true;
+                    
+
+                    //Validasi Cuti Hamil
+                    if (idLeaveCategorycmbBox.Text == "Cuti Hamil")
                     {
-                        MessageBox.Show("Insert succesfully");
-                        LoadGrid();
+                        if (gender == boolGender)
+                        {
+                            boolGender = true;
+                        }
+                        else
+                        {
+                            boolGender = false;
+                        }
+
+                        if (marital == boolMarital)
+                        {
+                            boolMarital = true;
+                        }
+                        else
+                        {
+                            boolMarital = false;
+                        }
+
+                        if (boolGender == true && boolMarital == true)
+                        {
+                            var result = leaveRequestController.Insert(push);
+                            if (result)
+                            {
+                                MessageBox.Show("Insert succesfully");
+                                LoadGrid();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Insert Failed");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Anda tidak bisa mengambil cuti ini");
+                        }
+
                     }
-                    else
+
+                    //Validasi Cuti Istri Lahiran & Keguguran
+                    if (idLeaveCategorycmbBox.Text == "Cuti Istri Lahiran" || idLeaveCategorycmbBox.Text == "Cuti Istri Keguguran")
                     {
-                        MessageBox.Show("Insert Failed");
+                        if (gender == boolGender)
+                        {
+                            boolGender = false;
+                        }else
+                        {
+                            boolGender = true;
+                        }
+
+                        if (marital == boolMarital)
+                        {
+                            boolMarital = true;
+                        }
+                        else
+                        {
+                            boolMarital = false;
+                        }
+
+                        if(boolGender == false && boolMarital == true)
+                        {
+                            var result = leaveRequestController.Insert(push);
+                            if (result)
+                            {
+                                MessageBox.Show("Insert succesfully");
+                                LoadGrid();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Insert Failed");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Anda tidak bisa mengambil cuti ini");
+                        }
+                        
                     }
+
+                    //Validasi Menikah
+                    if (idLeaveCategorycmbBox.Text == "Cuti Menikah")
+                    {
+                        if (marital == boolMarital)
+                        {
+                            MessageBox.Show("Anda tidak bisa mengambil cuti ini");
+                        }
+                        else
+                        {
+                            var result = leaveRequestController.Insert(push);
+                            if (result)
+                            {
+                                MessageBox.Show("Insert succesfully");
+                                LoadGrid();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Insert Failed");
+                            }
+                        }
+                    }
+                    //Validasi cuti haji
+                    if (idLeaveCategorycmbBox.Text == "Cuti Haji")
+                    {
+                        if ( religion== "Islam")
+                        {
+                            var result = leaveRequestController.Insert(push);
+                            if (result)
+                            {
+                                MessageBox.Show("Insert succesfully");
+                                LoadGrid();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Insert Failed");
+                            }
+                           
+                        }
+                        else
+                        {
+                            MessageBox.Show("Anda tidak bisa mengambil cuti ini");
+                        }
+                    }
+                    //Validasi cuti Khusus Anak
+                    if (idLeaveCategorycmbBox.Text == "Cuti Khusus Anak")
+                    {
+                        if (anak !=0)
+                        {
+                            var result = leaveRequestController.Insert(push);
+                            if (result)
+                            {
+                                MessageBox.Show("Insert succesfully");
+                                LoadGrid();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Insert Failed");
+                            }
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Anda tidak bisa mengambil cuti ini");
+                        }
+                    }
+                    //Cuti Biasa
+                    if (idLeaveCategorycmbBox.Text == "Cuti Biasa"|| idLeaveCategorycmbBox.Text == "Cuti Keluarga Meninggal"|| idLeaveCategorycmbBox.Text == "Cuti Kerabat Meninggal")
+                    {
+
+                        var result = leaveRequestController.Insert(push);
+                        if (result)
+                        {
+                            MessageBox.Show("Insert succesfully");
+                            LoadGrid();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Insert Failed");
+
+                        }
+                    }
+
+                   
+                    //Cleaning();
                 }
-                else
-                {
-                    MessageBox.Show("Insert Canceled");
-                }
-                Cleaning();
             }
+            
         }
 
         private void deletebtnlr_Click(object sender, RoutedEventArgs e)
@@ -382,7 +549,7 @@ namespace LeaveRequest
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
-       
+
         public void Cleaning()
         {
             idLctxtBox.Text = "";
@@ -393,13 +560,13 @@ namespace LeaveRequest
             fromDatedtPicker.Text = "";
             toDatedtPicker.Text = "";
             reasontxtBox.Text = "";
-            
+
             idEstxtBox.Text = "";
             joinDatedtPicker.Text = "";
             endDatedtPicker.Text = "";
             statustxtBox.Text = "";
         }
-      
+
         public void LoadGrid()
         {
             employeeStatusdtGrid.ItemsSource = employeeStatusesController.Get();
@@ -408,7 +575,7 @@ namespace LeaveRequest
         }
         public void LoadCombo()
         {
-            idEmployeecmbBox.ItemsSource = employeesController.Get();
+            idEmployeecmbBox.ItemsSource = employeeController.Get();
             idLeaveCategorycmbBox.ItemsSource = leaveCategoryController.Get();
         }
 
@@ -419,261 +586,5 @@ namespace LeaveRequest
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        public void LoadGrid()
-        {
-            holidaydtGrid.ItemsSource = holidayController.Get();
-            paramdtGrid.ItemsSource = parameterController.Get();
-            userdtGrid.ItemsSource = userController.Get();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            LoadGrid();
-            LoadCombo();
-        }
-
-        public void Cleaning()
-        {
-            idtxtHolidayBox.Text = "";
-            holidayNametxtBox.Text = "";
-            holidayDatedtPicker.Text = "";
-            idparamtxtBox.Text = "";
-            paramnametxtBox.Text = "";
-            paramvaluetxtBox.Text = "";
-        }
-
-        //Table Holidays
-        private void saveholidaybtn_Click(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(holidayNametxtBox.Text) || string.IsNullOrWhiteSpace(holidayDatedtPicker.Text))
-            {
-                MessageBox.Show("Please Fill Blank TextBox");
-            }
-            else
-            {
-                var push = new HolidayVM(holidayNametxtBox.Text, holidayDatedtPicker.SelectedDate);
-                var result = holidayController.Insert(push);
-                if (result)
-                {
-                    MessageBox.Show("Insert Succesfully");
-                    LoadGrid();
-                }
-                else
-                {
-                    MessageBox.Show("Insert Failed");
-                }
-                Cleaning();
-            }
-        }
-
-        private void updateholidaybtn_Click(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(holidayNametxtBox.Text) || string.IsNullOrWhiteSpace(holidayDatedtPicker.Text))
-            {
-                MessageBox.Show("Please Fill Blank TextBox");
-            }
-            else
-            {
-                var push = new HolidayVM(holidayNametxtBox.Text, holidayDatedtPicker.SelectedDate);
-                var result = holidayController.Update(Convert.ToInt32(idtxtHolidayBox.Text), push);
-                if (result)
-                {
-                    MessageBox.Show("Update Succesfully");
-                    LoadGrid();
-                }
-                else
-                {
-                    MessageBox.Show("Update Failed");
-                }
-                Cleaning();
-            }
-        }
-
-        private void deleteholidaybtn_Click(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(idtxtHolidayBox.Text))
-            {
-                MessageBox.Show("Please Fill Blank Id");
-            }
-            else
-            {
-                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure?", "Delete Data", MessageBoxButton.YesNo);
-                if (messageBoxResult == MessageBoxResult.Yes)
-                {
-                    var result = holidayController.Delete(Convert.ToInt32(idtxtHolidayBox.Text));
-                    if (result)
-                    {
-                        MessageBox.Show("Delete Succesfully");
-                        LoadGrid();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Delete Failed");
-                    }
-                }
-                Cleaning();
-            }
-        }
-
-        private void holidaydtGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
-        {
-            //Error Handling
-            object item = holidaydtGrid.SelectedItem;
-            try
-            {
-                idtxtHolidayBox.Text = (holidaydtGrid.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
-                holidayNametxtBox.Text = (holidaydtGrid.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
-                holidayDatedtPicker.Text = (holidaydtGrid.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text;
-            }
-            catch(Exception ex)
-            {
-
-            }
-        }
-
-        //Table Parameters
-        private void saveparambtn_Click(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(paramnametxtBox.Text) || string.IsNullOrWhiteSpace(paramvaluetxtBox.Text))
-            {
-                MessageBox.Show("Please Fill Blank TextBox");
-            }
-            else
-            {
-                var push = new ParameterVM(paramnametxtBox.Text, Convert.ToInt32(paramvaluetxtBox.Text));
-                var result = parameterController.Insert(push);
-                if (result)
-                {
-                    MessageBox.Show("Insert Succesfully");
-                    LoadGrid();
-                }
-                else
-                {
-                    MessageBox.Show("Insert Failed");
-                }
-                Cleaning();
-            }
-        }
-
-        private void updateparambtn_Click(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(paramnametxtBox.Text) || string.IsNullOrWhiteSpace(paramvaluetxtBox.Text))
-            {
-                MessageBox.Show("Please Fill Blank TextBox");
-            }
-            else
-            {
-                var push = new ParameterVM(paramnametxtBox.Text, Convert.ToInt32(paramvaluetxtBox.Text));
-                var result = parameterController.Update(Convert.ToInt32(idparamtxtBox.Text), push);
-                if (result)
-                {
-                    MessageBox.Show("Update Succesfully");
-                    LoadGrid();
-                }
-                else
-                {
-                    MessageBox.Show("Update Failed");
-                }
-                Cleaning();
-            }
-        }
-
-        private void deleteparambtn_Click(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(idparamtxtBox.Text))
-            {
-                MessageBox.Show("Please Fill Blank Id");
-            }
-            else
-            {
-                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure?", "Delete Data", MessageBoxButton.YesNo);
-                if (messageBoxResult == MessageBoxResult.Yes)
-                {
-                    var result = parameterController.Delete(Convert.ToInt32(idparamtxtBox.Text));
-                    if (result)
-                    {
-                        MessageBox.Show("Delete Succesfully");
-                        LoadGrid();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Delete Failed");
-                    }
-                }
-                Cleaning();
-            }
-        }
-
-        private void paramdtGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
-        {
-            //Error Handling
-            object item = paramdtGrid.SelectedItem;
-            try
-            {
-                idparamtxtBox.Text = (paramdtGrid.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
-                paramnametxtBox.Text = (paramdtGrid.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
-                paramvaluetxtBox.Text = (paramdtGrid.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text;
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
-
-        //Table Users
-        private void saveuserbtn_Click(object sender, RoutedEventArgs e)
-        {
-            if (/*string.IsNullOrWhiteSpace(idusercmbBox.Text) || */string.IsNullOrWhiteSpace(userEmailtxtBox.Text) || string.IsNullOrWhiteSpace(userpwdBox.Password) || string.IsNullOrWhiteSpace(rolecmbBox.Text))
-            {
-                MessageBox.Show("Please Fill in the Blank");
-            }
-            else
-            {
-                var push = new UserVM(Convert.ToInt32(idusertxtBox.Text), userEmailtxtBox.Text, userpwdBox.Password, Convert.ToInt32(rolecmbBox.SelectedValue));
-                var result = userController.Insert(push);
-                if (result) 
-                {
-                    MessageBox.Show("Insert Succesfully");
-                    LoadGrid();
-                }
-                else
-                {
-                    MessageBox.Show("Insert Failed");
-                }
-                Cleaning();
-            }
-        }
-
-        private void updateuserbtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void deleteuserbtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void LoadCombo()
-        {
-            rolecmbBox.ItemsSource = roleController.Get();
-            //idusercmbBox.ItemsSource = employeeController.Get();
-        }
-
-        private void userdtGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
-        {
-            object item = userdtGrid.SelectedItem;
-            try
-            {
-                idusertxtBox.Text = (userdtGrid.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
-                userEmailtxtBox.Text = (userdtGrid.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
-                userpwdBox.Password = (userdtGrid.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text;
-                rolecmbBox.Text = (userdtGrid.SelectedCells[3].Column.GetCellContent(item) as TextBlock).Text;
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
     }
 }
