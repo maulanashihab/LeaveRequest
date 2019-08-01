@@ -1,4 +1,4 @@
-namespace LeaveRequest.Migrations
+﻿namespace LeaveRequest.Migrations
 {
     using System;
     using System.Data.Entity;

@@ -26,28 +26,28 @@ namespace LeaveRequest.Repositories
 
         public List<Employee> Get()
         {
-            var get = applicationContext.Employee.Where(x => x.IsDelete == false).ToList();
+            var get = applicationContext.Employees.Where(x => x.IsDelete == false).ToList();
             return get;
         }
 
         public List<Employee> Get(string value) //for search data by value id, firstname & lastname.
         {
-            var get = applicationContext.Employee.Where(x => (x.Id.ToString().Contains(value) || x.FirstName.Contains(value) || x.LastName.Contains(value) || x.Gender.Contains(value)) && x.IsDelete == false).ToList();
+            var get = applicationContext.Employees.Where(x => (x.Id.ToString().Contains(value) || x.FirstName.Contains(value) || x.LastName.Contains(value) ) && x.IsDelete == false).ToList();
             return get;
         }
 
         public Employee Get(int id)
         {
-            var get = applicationContext.Employee.SingleOrDefault(x => x.IsDelete == false && x.Id == id);
+            var get = applicationContext.Employees.SingleOrDefault(x => x.IsDelete == false && x.Id == id);
             return get;
         }
 
         public bool Insert(EmployeeVM employeeVM)
         {
             var push = new Employee(employeeVM);
-            var getEmployee = applicationContext.Employee.SingleOrDefault(x => x.IsDelete == false && x.Id == employeeVM.ManagerId);
+            var getEmployee = applicationContext.Employees.SingleOrDefault(x => x.IsDelete == false && x.Id == employeeVM.ManagerId);
             push.Manager = getEmployee;
-            applicationContext.Employee.Add(push);
+            applicationContext.Employees.Add(push);
             var result = applicationContext.SaveChanges();
             return result > 0;
         }
